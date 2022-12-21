@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Schedule Page</title>
+        <link rel="stylesheet" href="scheduleCssForm.css">
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,900" rel="stylesheet">
+    </head>
+    <body>
+	<div class="wrapper">
+        <div class="container">
+            <div class="container-date">
+                <h2 class="heading"> Welcome to CSC350 Laundry </h2>
+                <hr>
+                <h3 class="heading-days"> We are open 22/7</h3>
+                <h4>Notice:</h4>
+                <p>Each Apartment has (2) hours of use every week. </p>
+				<p>Each Apartment has time slot every week. </p>
+				<p>If no availabe time can be selected that means you have already reserved you time</p>
+				<p>Thank you for booking your time spot!</p>
+				
+                <hr>
+           
+
+            </div>
+            <div class="container-form">
+			<h2 class="heading heading-yellow"> Online Reservation </h2>
+                <?php
+$conn=mysqli_connect("localhost","root","root","mydb");
+
+echo "<b>Once Selected it cannot be changed</b><p>";
+echo "Select avaliable time slot";
+// i have aprt id now i can update sql
+		$aptid=$_POST['cheackAptId'];
+
+		  
+		  
+	  
+if(!$conn){
+	echo "No Connection to databse";
+}
+else{
+
+$sql1="select aptid from usertable where slot_slotid is NULL;";		
+      $result1=mysqli_query($conn,$sql1);
+      while ($row = mysqli_fetch_assoc($result1)) {
+		  if($row['aptid'] == $aptid){ //$aptid is coming from login php and $row['aptid '] is from back end
+
+
+	$sql="select freeslot,day,slotid from slot where status = 0;";
+	$result=mysqli_query($conn,$sql);
+	if(!$result){
+	echo "eRoR";}
+    else
+	{
+		if(mysqli_num_rows($result)>0)
+		{
+		
+		echo "<html>";
+      	echo "<form action = 'update.php' method='post'>";
+		echo "<select name = 'slot'>";
+	    while($row=mysqli_fetch_assoc($result)){
+			echo "<option  value='".$row["slotid"]."' n>".$row["freeslot"]." ".$row["day"]."</option>";
+		}
+		echo "</select>";
+        echo "<input type='hidden' name='name' value='$aptid'>";
+		echo "<p><input class='btn' type='submit' value='Insert'></p>";
+		echo "</form>";
+		echo "</html>";
+		} else{
+		echo "no data";
+		}
+		
+	 while($row1=mysqli_fetch_assoc($result)){
+				    echo "".$row1["slotid"]."";
+				}
+	
+}
+
+
+
+
+		  
+	  }
+	  
+	  }
+}	 
+?>
+                        
+                    </div>
+					<br>
+                  <!--  <button  class="btn">Submit</button> -->
+                </form>
+
+            </div>
+        </div>
+		</div>
+    </body>
+</html>

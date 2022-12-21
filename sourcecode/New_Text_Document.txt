@@ -1,0 +1,46 @@
+
+<html>
+<body>
+<?php
+$conn=mysqli_connect("localhost","root","root","mydb");
+echo "<p><b>you are allowed to sign up for one time slot</b><p>";
+echo "select avaliable time slot";
+if(!$conn){
+	echo "No Conn";
+}
+else
+{
+	$sql="select freeslot, date from slot where status = 0;";
+	$result=mysqli_query($conn,$sql);
+	if(!$result){
+	echo "eRoR";}
+    else{
+		if(mysqli_num_rows($result)>0){
+		echo "<html>";
+      	echo "<form action = 'update.php' method='post'>";
+		echo "select name = 'slot'";
+	    while($row=mysqli_fetch_assoc($result)){
+
+
+			
+			echo "<option value='".$row["freeslot"]."'>".$row["date"]."</option>";
+		}
+		echo "</select>";
+		echo "<p><input type='submit' value='insert'></p>";
+		echo "</form>";
+		echo "</html>";
+		} else{
+		echo "no data";
+		}
+		
+	 
+	
+}
+
+
+}
+
+
+?>
+</body>
+</html>

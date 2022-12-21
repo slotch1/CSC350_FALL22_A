@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="grantt project for cis 350" company="bmcc" webLink="http://" view-date="2022-09-25" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="3.1.3103" locale="en_US">
+    <description>
+        <![CDATA[grantt project for cis 350 ]]>
+    </description>
+    <view zooming-state="default:4" id="gantt-chart">
+        <field id="tpd3" name="Name" width="167" order="0"/>
+        <field id="tpd4" name="Begin date" width="65" order="1"/>
+        <field id="tpd5" name="End date" width="64" order="2"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="meeting with client and ask euqstion about project" color="#8cb6ce" meeting="false" start="2022-10-21" duration="8" complete="0" thirdDate="2022-10-21" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[1after every week the data should be erased or data should be saved for some time of period and after it should be erased?
+2) the time set should be done from the same time zone or someone can reserve loundry time from other time zone (this may cause problem and confusion with time)
+3) is there will be any possibilities that reserved time would be changed for example for loundry machine maintnance 
+4) from every unit there can be only one person can log in or multiple  persons can log in
+5) should there be dates(11/20/2022) or especialy days(monday tuesday ...) for output 
+6) should there be  possibility to incrise the number of units for example from 20 to 30 or more
+7) should there be  possibilty to incrise the number of loundry machines not one but for example three and what is happenig with time slots in this situation
+8) should there be administrator that will be able to add and delete information and do we need to create one more front end for this (this question more refers to proffesor than client )
+9) does every person that lives in units have some unique id that can identify them or do all of them have SSN that we can to use for identifing (if not we need to create unique number for them because not everyone in usa have SSN)
+
+]]>
+            </notes>
+        </task>
+        <task id="3" name="Meet and choose variable for project and decide the general view about it (make header file))" color="#8cb6ce" meeting="false" start="2022-10-21" duration="1" complete="0" thirdDate="2022-10-21" thirdDate-constraint="0" priority="4" expand="true">
+            <notes>
+                <![CDATA[decide the names of variable how many variable should there be and share general view about project]]>
+            </notes>
+            <depend id="6" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="6" name="Entity relationship diagram/Data flow diagram" color="#8cb6ce" meeting="false" start="2022-10-24" duration="7" complete="0" thirdDate="2022-10-21" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+            <notes>
+                <![CDATA[design data tables how they should behave how many tables we need and how information
+should behave how tables hould be connected to each other E-R modeling 
+several variables that we need Unit username and pasword for login dates and design how datatables will be connected to each other decide how will we do not displaying reserved units in one we will put take and in other not reserved or we will put everything in one table where will be username and if username is empty that its meen soket is free system analys]]>
+            </notes>
+            <depend id="7" type="2" difference="0" hardness="Strong"/>
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+            <depend id="49" type="2" difference="0" hardness="Strong"/>
+            <depend id="118" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="118" name="Back end detailed design" color="#8cb6ce" meeting="false" start="2022-11-02" duration="6" complete="0" thirdDate="2022-10-27" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[database dictionary
+
+]]>
+            </notes>
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="7" name="Html design" color="#8cb6ce" meeting="false" start="2022-11-02" duration="6" complete="0" thirdDate="2022-10-21" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[How front end would like there will be several pages for login and after for reserving time or everything will be done on same page ]]>
+            </notes>
+            <depend id="10" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="8" name="php design" color="#8cb6ce" meeting="false" start="2022-11-02" duration="6" complete="0" thirdDate="2022-10-21" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[we can do it parralel with html what we are deciding here how logic and querly will work]]>
+            </notes>
+            <depend id="49" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="9" name="Implementation of back end" color="#8cb6ce" meeting="false" start="2022-11-10" duration="9" complete="0" thirdDate="2022-10-21" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[create all the tables and connection between them in mysql workbanch]]>
+            </notes>
+            <depend id="11" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="49" name="Implementation of php" color="#8cb6ce" meeting="false" start="2022-11-10" duration="9" complete="0" thirdDate="2022-10-07" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[create quetly and decide how logic will work 
+]]>
+            </notes>
+            <depend id="11" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="10" name="implementation of html" color="#8cb6ce" meeting="false" start="2022-11-10" duration="9" complete="0" thirdDate="2022-10-21" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[tasks from 6-8 can be done paralely it can not done without design]]>
+            </notes>
+            <depend id="11" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="11" name="present result to group and test it" color="#8cb6ce" meeting="false" start="2022-11-23" duration="1" complete="0" thirdDate="2022-10-21" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[present result to group and test]]>
+            </notes>
+            <depend id="22" type="2" difference="0" hardness="Strong"/>
+            <depend id="24" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="22" name="fix erors and make project make up" color="#8cb6ce" meeting="false" start="2022-11-24" duration="5" complete="0" thirdDate="2022-10-07" thirdDate-constraint="0" expand="true">
+            <depend id="24" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="24" name="give project to client" color="#8cb6ce" meeting="false" start="2022-12-01" duration="1" complete="0" thirdDate="2022-10-07" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Luka razmadze" function="Default:0" contacts="razmadzeluka13@gmail.com" phone="917---------"/>
+        <resource id="1" name="Abdoul Diallo" function="Default:0" contacts="diallogadry93@gmail.com" phone="917-----------"/>
+        <resource id="2" name="Finniy" function="Default:0" contacts="" phone="917-------------"/>
+    </resources>
+    <allocations>
+        <allocation task-id="0" resource-id="0" function="Default:0" responsible="true" load="5.0"/>
+        <allocation task-id="6" resource-id="0" function="Default:0" responsible="false" load="30.0"/>
+        <allocation task-id="3" resource-id="0" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="9" resource-id="0" function="Default:0" responsible="true" load="30.0"/>
+        <allocation task-id="11" resource-id="0" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="22" resource-id="0" function="Default:0" responsible="false" load="40.0"/>
+        <allocation task-id="118" resource-id="0" function="Default:0" responsible="true" load="20.0"/>
+        <allocation task-id="0" resource-id="1" function="Default:0" responsible="false" load="5.0"/>
+        <allocation task-id="6" resource-id="1" function="Default:1" responsible="true" load="10.0"/>
+        <allocation task-id="3" resource-id="1" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="7" resource-id="1" function="Default:0" responsible="true" load="20.0"/>
+        <allocation task-id="10" resource-id="1" function="Default:0" responsible="true" load="35.0"/>
+        <allocation task-id="11" resource-id="1" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="22" resource-id="1" function="Default:0" responsible="true" load="40.0"/>
+        <allocation task-id="24" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="0" resource-id="2" function="Default:0" responsible="false" load="5.0"/>
+        <allocation task-id="6" resource-id="2" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="3" resource-id="2" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="8" resource-id="2" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="49" resource-id="2" function="Default:0" responsible="true" load="35.0"/>
+        <allocation task-id="11" resource-id="2" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="22" resource-id="2" function="Default:0" responsible="false" load="40.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>

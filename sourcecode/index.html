@@ -1,0 +1,121 @@
+<! DOCTYPE html>
+	<head>
+    	<meta name= "viewport" content ="width =device=width, initial-scale=2.0">
+		<meta charset="utf-8">
+        <title> Sign up/log in Form</form></title>
+
+        <link rel="stylesheet" href="./main.css">
+        <form action="login.php" method="post"></form> 
+		
+	<script>
+		
+		function setFormMessage(formElement,type, message) 
+		{
+			const msgElement = formElement.querySelector(".form__message");
+
+			msgElement.textContent = message;
+			msgElement.classList.remove("form__message--success", "form__message--error");
+			msgElement.classList.add(`form__message--${type}`);
+}
+
+			function setInputError(inputElement, message) 
+	{
+		inputElement.classList.add("form__input--error");
+		inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
+	}
+
+		function clearInputError(inputElement)
+	{
+		inputElement.classList.remove("form__input--error");
+		inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
+	}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.querySelector("#login");
+    const createAccountForm = document.querySelector("#createAccount");
+
+    document.querySelector("#connectCAccount").addEventListener("click", e => {
+        e.preventDefault();
+        loginForm.classList.add("form--hidden");
+        createAccountForm.classList.remove("form--hidden");
+    });
+
+    document.querySelector("#linkLogin").addEventListener("click", e => {
+        e.preventDefault();
+        loginForm.classList.remove("form--hidden");
+        createAccountForm.classList.add("form--hidden");
+    });
+
+  
+
+    document.querySelectorAll(".form__input").forEach(inputElement => {
+        inputElement.addEventListener("blur", e => {
+            if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 10) {
+                setInputError(inputElement, "Username must be at least 10 characters in length");
+            }
+        });
+
+        inputElement.addEventListener("input", e => {
+            clearInputError(inputElement);
+        });
+    });
+});
+</script>		
+		
+	</head>
+    
+	<!-- Begin the Body-->
+	<body>
+        <div class="container">
+            <form action="login.php" class="form" id="Login" method="post" action="onsumbit">
+                <h2 class="form__title">Login</h2>
+                <div class="form__message form__message--error"></div>
+                <div class="form__input-group">
+                    <input pattern=".{2,}" maxlength="3" type="text" class="form__input" id="cheackAptid" name="cheackAptId"  autofocus placeholder="Apartment number maximum 3 charachters" required>
+                    <div class="form__input-error-message"></div>
+                </div>
+                <div class="form__input-group">
+                    <input type="password" class="form__input"  id="cheackpassword" name="cheackpassword"  autofocus placeholder="Password" required>
+                    <div class="form__input-error-message"></div>                    
+                </div>
+                <button class="form__button" type="submit"> Login</button>
+               
+                <p class="form__text"> Not registered?
+                    <a class="form__link" href="./" id="connectCAccount"> Create Account</a>              
+
+                </p> 
+         			
+            </form>
+            <form action="Project.php" class="form form--hidden" id="createAccount" method="post" action="onsubmit">
+                <h1 class="form__title">Create Account</h1>
+                <div class="form__message form__message--error"></div>
+                <div class="form__input-group">
+                    <input type="text" id="firstname" name="firstname" class="form__input" autofocus placeholder="First Name" required>
+                    <div class="form__input-error-message"></div>
+                </div>
+                <div class="form__input-group">
+                    <input type="text" id="lastname" name="lastname" class="form__input" autofocus placeholder="Last Name" required>
+                    <div class="form__input-error-message"></div>
+                </div>
+                <div class="form__input-group">
+                    <input type="text" maxlength="3" id="Aptid" name="AptId" class="form__input" autofocus placeholder="Apartment number" required>
+                    <div class="form__input-error-message"></div>
+                </div>
+                
+                <div class="form__input-group">
+                    <input type="text" id="password" name="password" class="form__input" placeholder="Password" required>
+                    <div class="form__input-error-message"></div>
+                </div>
+                <div class="form__input-group">
+                    <input type="text" class="form__input" autofocus placeholder="Confirm Password" required>
+                    <div class="form__input-error-message"></div>
+                </div>
+                <button class="form__button" type="submit">submit</button>
+                <p class="form__text"> Already have an account?
+                    <a class="form__link" href="./" id="linkLogin"> Sign in</a>
+                </p>
+                        
+            </form>          
+        </div>
+      <!--  <script src="./main.js"></script> -->
+    </body>
